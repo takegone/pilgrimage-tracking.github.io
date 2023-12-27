@@ -19,12 +19,23 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8SjDEkBn1s7KrS0jN2DKEkIyQOBJbkZk
         &libraries=visualization&callback=initMap">
     </script>
+    
+    var firebase = new Firebase("https://pilgrimage-tracking.firebaseIO.com");
+    var firebaseConfig = {
+      apiKey: "AIzaSyD8SjDEkBn1s7KrS0jN2DKEkIyQOBJbkZk",
+      authDomain: "pilgrimage-tracking.firebaseapp.com",
+      databaseURL: "https://pilgrimage-tracking-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "pilgrimage-tracking",
+      storageBucket: "pilgrimage-tracking.appspot.com",
+      messagingSenderId: "403722622832",
+    };
 
+    firebase.initializeApp(config);
     <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 0, lng: 0},
-          zoom: 3,
+          center: {lat: 35, lng: 135},
+          zoom: 5,
           styles: [{
             featureType: 'poi',
             stylers: [{ visibility: 'off' }]  // Turn off points of interest.
@@ -35,6 +46,9 @@
           disableDoubleClickZoom: true,
           streetViewControl: false
         });
+      }
+      function getLocation(){
+        //var locationRef = firebase.database().ref('users/'
       }
     </script>
 
