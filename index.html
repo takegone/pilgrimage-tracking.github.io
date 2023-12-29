@@ -48,7 +48,17 @@
         });
       }
       function getLocation(){
-        //var locationRef = firebase.database().ref('users/'
+        var locationRef = firebase.database().ref('locations/');
+        locationRef.once('value', (snapshot) => {
+          snapshot.foreach((childSnapshot) => {
+            var childData = childSnapshot.val();
+            var point = new google.maps.LatLng(childData.latitude, childData.longtitude);
+            var date = new Date(childData.timestamp);
+            var marker = new google.maps.Marker({
+              position: point
+              title: date
+            });
+          }
       }
     </script>
 
