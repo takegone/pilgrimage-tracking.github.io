@@ -43,8 +43,7 @@
           disableDoubleClickZoom: true,
           streetViewControl: false
         });
-      }
-      function getLocation(){
+        
         var locationRef = firebase.database().ref('locations/');
         locationRef.once('value', (snapshot) => {
           snapshot.foreach((childSnapshot) => {
