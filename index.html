@@ -20,18 +20,19 @@
         &libraries=visualization&callback=initMap">
     </script>
     
-    var firebase = new Firebase("https://pilgrimage-tracking.firebaseIO.com");
-    var firebaseConfig = {
-      apiKey: "AIzaSyD8SjDEkBn1s7KrS0jN2DKEkIyQOBJbkZk",
-      authDomain: "pilgrimage-tracking.firebaseapp.com",
-      databaseURL: "https://pilgrimage-tracking-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "pilgrimage-tracking",
-      storageBucket: "pilgrimage-tracking.appspot.com",
-      messagingSenderId: "403722622832",
-    };
+    <script> 
+      var firebase = new Firebase("https://pilgrimage-tracking.firebaseIO.com");
+      var firebaseConfig = {
+        apiKey: "AIzaSyD8SjDEkBn1s7KrS0jN2DKEkIyQOBJbkZk",
+        authDomain: "pilgrimage-tracking.firebaseapp.com",
+        databaseURL: "https://pilgrimage-tracking-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "pilgrimage-tracking",
+        storageBucket: "pilgrimage-tracking.appspot.com",
+        messagingSenderId: "403722622832",
+      };
 
-    firebase.initializeApp(config);
-    <script>
+      firebase.initializeApp(config);
+    
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 35, lng: 135},
