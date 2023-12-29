@@ -52,6 +52,7 @@
             var point = new google.maps.LatLng(childData.latitude, childData.longtitude);
             var date = new Date(childData.timestamp);
             var marker = new google.maps.Marker({
+              map: map,
               position: point,
               title: date
             });
