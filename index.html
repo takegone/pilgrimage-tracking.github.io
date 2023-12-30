@@ -45,7 +45,7 @@
           streetViewControl: false
         });
         
-        const locationRef = ref(database, '/location');
+        const locationRef = ref(database, 'location/');
         onValue(locationRef, (snapshot) => {
           snapshot.forEach((childSnapshot) => {
             const childData = childSnapshot.val();
