@@ -47,7 +47,7 @@
         
         const locationRef = ref(database, '/location');
         onValue(locationRef, (snapshot) => {
-          snapshot.foreach((childSnapshot) => {
+          snapshot.forEach((childSnapshot) => {
             const childData = childSnapshot.val();
             var point = new google.maps.LatLng(childData.latitude, childData.longtitude);
             var date = new Date(childData.timestamp);
