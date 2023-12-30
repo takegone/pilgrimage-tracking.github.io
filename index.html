@@ -14,11 +14,11 @@
   </head>
   <body>
     <div id="map"></div>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
     
     <script> 
-      var firebaseConfig = {
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+      import { getDatabase, ref, set } from　'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+      const firebaseConfig = {
         apiKey: "AIzaSyD8SjDEkBn1s7KrS0jN2DKEkIyQOBJbkZk",
         authDomain: "pilgrimage-tracking.firebaseapp.com",
         databaseURL: "https://pilgrimage-tracking-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -27,7 +27,8 @@
         messagingSenderId: "403722622832",
       };
 
-      firebase.initializeApp(firebaseConfig);
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
     
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -44,10 +45,10 @@
           streetViewControl: false
         });
         
-        var locationRef = firebase.database().ref('locations/');
-        locationRef.once('value', (snapshot) => {
+        const locationRef = ref(database, '/location');
+        onValue(locationRef, (snapshot) => {
           snapshot.foreach((childSnapshot) => {
-            var childData = childSnapshot.val();
+            const childData = childSnapshot.val();
             var point = new google.maps.LatLng(childData.latitude, childData.longtitude);
             var date = new Date(childData.timestamp);
             var marker = new google.maps.Marker({
@@ -56,6 +57,8 @@
               title: date
             });
           });
+        }, {
+          onlyOnce: true
         });
       }
 
