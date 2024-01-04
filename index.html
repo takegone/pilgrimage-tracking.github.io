@@ -60,15 +60,14 @@
         }, {
           onlyOnce: true
         });
+        var point = new google.maps.LatLng(34.80170902500293, 134.15275056188574);
+        var date = new Date();
+        var marker = new google.maps.Marker({
+          map: map,
+          position: point,
+          title: date
+        });
       }
-
-      var point = new google.maps.LatLng(34.80170902500293, 134.15275056188574);
-      var date = new Date();
-      var marker = new google.maps.Marker({
-        map: map,
-        position: point,
-        title: date
-      });
       window.initMap = initMap;
     </script>
 
